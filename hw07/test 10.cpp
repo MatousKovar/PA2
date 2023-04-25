@@ -34,10 +34,38 @@ bool comparator (const M_ & lhs, const M_ & rhs)
 {
     return lhs < rhs;
 }
-struct CWin {
-    int m_Wins = 0;
-};
 
+template<typename M_>
+struct CDuel
+{
+  string m_Contestant1;
+  string m_Contestant2;
+  M_ m_Result;
+  bool operator == (const CDuel & a)
+  {
+      return m_Contestant1 == a.m_Contestant1 && m_Contestant2 == a.m_Contestant2 && m_Result == a.m_Result;
+  }
+  bool operator < (const CDuel & a)
+  {
+      if (m_Contestant1 != m_Contestant1)
+          return m_Contestant1 < a.m_Contestant1;
+      if (m_Contestant2 != a.m_Contestant2)
+          return m_Contestant2 < a.m_Contestant2;
+      return m_Result < a.m_Result;
+  }
+};
+template <typename M_>
+struct CContestant {
+    bool add ( const CDuel <M_> & a)
+    {
+        if (m_Matches.find(a) != m_Matches.end())
+            return false;
+        m_Matches.insert(a);
+        return true;
+    }
+    int m_Wins = 0;
+    set<CDuel <M_> > m_Matches;
+};
 
 template<typename M_>
 class CContest {
@@ -45,15 +73,6 @@ public:
     CContest() = default;
     ~CContest () = default;
     //TODO vymyslet jak bude vypadat comparator...
-    int compareMatches (const M_ & lhs) const
-    {
-        if (lhs.m_A > lhs.m_B)
-            return 1;
-        if (lhs == rhs)
-            return 0;
-        if (lhs < rhs)
-            return -1;
-    }
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
         //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
@@ -68,13 +87,13 @@ public:
     // isOrdered ( comparator )
     bool isOrdered()
     {
-        //TODO projde mapu soutezicich a koukne jestli ma nekdo stejne skore
-        for ( auto & a : m_Contestants)
+        return true;
     }
     // results ( comparator )
 private:
     //Udelat shared ptr na CContestant? a mit to v setu serazeno podle vyher a v mape podle jmena??? To nezni uplne spatne
-    map <string, CWin> m_Contestants;
+    map <string, CContestant <M_> > m_Contestants;
+    vector<CDuel<M_> > m_Matches;
 };
 
 #ifndef __PROGTEST__
