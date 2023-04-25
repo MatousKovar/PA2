@@ -34,23 +34,9 @@ bool comparator (const M_ & lhs, const M_ & rhs)
 {
     return lhs < rhs;
 }
-struct CContestant {
-    string m_Name;
+struct CWin {
     int m_Wins = 0;
-    bool operator < (const CContestant & a)
-    {
-        return m_Name < a.m_Name;
-    }
 };
-
-template <typename M_>
-struct CMatch
-{
-    string contestant1;
-    string contestant2;
-    M_ res;
-};
-
 
 
 template<typename M_>
@@ -58,21 +44,37 @@ class CContest {
 public:
     CContest() = default;
     ~CContest () = default;
-    // addMatch ( contestant1, contestant2, result )
+    //TODO vymyslet jak bude vypadat comparator...
+    int compareMatches (const M_ & lhs) const
+    {
+        if (lhs.m_A > lhs.m_B)
+            return 1;
+        if (lhs == rhs)
+            return 0;
+        if (lhs < rhs)
+            return -1;
+    }
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
-        //TODO z result ziskame vysledek, vitezi pripiseme vsechny vyhry co ma porazeny + 1, pokud ma jiz vitez vice vyher
         //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
-        m_Matches.push_back({contestant1,contestant2, result});
+        if (compareMatches(result) > 1)
+            m_Contestants[contestant1].m_Wins = m_Contestants[contestant2].m_Wins + 1;
+        else if ( compareMatches == 0)
+
+        else if (compareMatches < 0)
+            m_Contestants[contestant2].m_Wins = m_Contestants[contestant1].m_Wins + 1;
+        return;
     }
     // isOrdered ( comparator )
     bool isOrdered()
     {
         //TODO projde mapu soutezicich a koukne jestli ma nekdo stejne skore
+        for ( auto & a : m_Contestants)
     }
     // results ( comparator )
 private:
-    vector< CMatch<M_> > m_Matches;
+    //Udelat shared ptr na CContestant? a mit to v setu serazeno podle vyher a v mape podle jmena??? To nezni uplne spatne
+    map <string, CWin> m_Contestants;
 };
 
 #ifndef __PROGTEST__
