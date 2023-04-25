@@ -43,6 +43,14 @@ struct CContestant {
     }
 };
 
+template <typename M_>
+struct CMatch
+{
+    string contestant1;
+    string contestant2;
+    M_ res;
+};
+
 
 
 template<typename M_>
@@ -53,15 +61,18 @@ public:
     // addMatch ( contestant1, contestant2, result )
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
-        m_Contestants.insert({contestant1});
-        m_Contestants.insert({contestant2});
+        //TODO z result ziskame vysledek, vitezi pripiseme vsechny vyhry co ma porazeny + 1, pokud ma jiz vitez vice vyher
+        //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
+        m_Matches.push_back({contestant1,contestant2, result});
     }
     // isOrdered ( comparator )
+    bool isOrdered()
+    {
+        //TODO projde mapu soutezicich a koukne jestli ma nekdo stejne skore
+    }
     // results ( comparator )
 private:
-    vector<M_> m_Matches;
-    set<CContestant> m_Contestants;
-    vector<CContestant> m_Leaderboard;
+    vector< CMatch<M_> > m_Matches;
 };
 
 #ifndef __PROGTEST__
