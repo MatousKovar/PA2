@@ -30,9 +30,13 @@ using namespace std;
 
 
 template <typename M_>
-bool comparator (const M_ & lhs, const M_ & rhs)
+int comparator (const M_ & obj)
 {
-    return lhs < rhs;
+    if (obj.first > obj.second)
+        return 1;
+    if ( obj.first < obj.second)
+        return -1;
+    else return 0;
 }
 
 template<typename M_>
@@ -45,17 +49,25 @@ struct CDuel
   {
       return m_Contestant1 == a.m_Contestant1 && m_Contestant2 == a.m_Contestant2 && m_Result == a.m_Result;
   }
+  bool compare(const M_ & lhs, const M_ & rhs)
+  {
+      if (lhs.first != rhs.first)
+          return lhs.first < rhs.first;
+      return lhs.second < rhs.second;
+  }
   bool operator < (const CDuel & a)
   {
       if (m_Contestant1 != m_Contestant1)
           return m_Contestant1 < a.m_Contestant1;
       if (m_Contestant2 != a.m_Contestant2)
           return m_Contestant2 < a.m_Contestant2;
-      return m_Result < a.m_Result;
+      return compare(m_Result,a.m_Result);
   }
 };
+
 template <typename M_>
 struct CContestant {
+public:
     bool add ( const CDuel <M_> & a)
     {
         if (m_Matches.find(a) != m_Matches.end())
@@ -64,7 +76,7 @@ struct CContestant {
         return true;
     }
     int m_Wins = 0;
-    set<CDuel <M_> > m_Matches;
+    set< CDuel <M_> > m_Matches;
 };
 
 template<typename M_>
@@ -75,21 +87,22 @@ public:
     //TODO vymyslet jak bude vypadat comparator...
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
-        //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
-        if (compareMatches(result) > 1)
-            m_Contestants[contestant1].m_Wins = m_Contestants[contestant2].m_Wins + 1;
-        else if ( compareMatches == 0)
-
-        else if (compareMatches < 0)
-            m_Contestants[contestant2].m_Wins = m_Contestants[contestant1].m_Wins + 1;
-        return;
+        CDuel<M_> a {contestant1,contestant2,result};
+        m_Contestants[contestant1].add(a);
+        m_Contestants[contestant2].add(a);
     }
     // isOrdered ( comparator )
-    bool isOrdered()
+    bool isOrdered(int compare (const M_ & obj))
     {
         return true;
     }
     // results ( comparator )
+    list<string> results ( int compare (const M_ & obj))
+    {
+        list<string> res;
+
+        return res;
+    }
 private:
     //Udelat shared ptr na CContestant? a mit to v setu serazeno podle vyher a v mape podle jmena??? To nezni uplne spatne
     map <string, CContestant <M_> > m_Contestants;
