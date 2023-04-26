@@ -28,72 +28,55 @@
 using namespace std;
 #endif /* __PROGTEST__ */
 
-
-template <typename M_>
-bool comparator (const M_ & lhs, const M_ & rhs)
+//vrchol bude obsahovat vsechny soupere, ktere porazil
+class CContestant
 {
-    return lhs < rhs;
-}
-
-template<typename M_>
-struct CDuel
-{
-  string m_Contestant1;
-  string m_Contestant2;
-  M_ m_Result;
-  bool operator == (const CDuel & a)
-  {
-      return m_Contestant1 == a.m_Contestant1 && m_Contestant2 == a.m_Contestant2 && m_Result == a.m_Result;
-  }
-  bool operator < (const CDuel & a)
-  {
-      if (m_Contestant1 != m_Contestant1)
-          return m_Contestant1 < a.m_Contestant1;
-      if (m_Contestant2 != a.m_Contestant2)
-          return m_Contestant2 < a.m_Contestant2;
-      return m_Result < a.m_Result;
-  }
-};
-template <typename M_>
-struct CContestant {
-    bool add ( const CDuel <M_> & a)
+public:
+    CVertice() = default;
+    ~CVertice() = default;
+    void add ( const string & a)
     {
-        if (m_Matches.find(a) != m_Matches.end())
-            return false;
-        m_Matches.insert(a);
-        return true;
+        m_Edges.insert(a);
     }
-    int m_Wins = 0;
-    set<CDuel <M_> > m_Matches;
+private:
+    set<string> m_Edges;
+    string m_Name;
 };
+
+
 
 template<typename M_>
 class CContest {
 public:
     CContest() = default;
     ~CContest () = default;
-    //TODO vymyslet jak bude vypadat comparator...
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
         //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
-        if (compareMatches(result) > 1)
-            m_Contestants[contestant1].m_Wins = m_Contestants[contestant2].m_Wins + 1;
-        else if ( compareMatches == 0)
-
-        else if (compareMatches < 0)
-            m_Contestants[contestant2].m_Wins = m_Contestants[contestant1].m_Wins + 1;
-        return;
+        m_Matches.push_back({contestant1, contestant2, result});
+        return *this;
     }
     // isOrdered ( comparator )
+    //TODO tady se provede BFS a urci zda je mozne rozhodnout viteze
     bool isOrdered()
     {
         return true;
     }
     // results ( comparator )
+    //TODO take se provede BFS
+    list<string> results ()
+    {
+
+    }
 private:
-    //Udelat shared ptr na CContestant? a mit to v setu serazeno podle vyher a v mape podle jmena??? To nezni uplne spatne
-    map <string, CContestant <M_> > m_Contestants;
-    vector<CDuel<M_> > m_Matches;
+    struct Contest {
+        string contestant1;
+        string contetant2;
+        M_ result;
+    };
+    vector<Contest> m_Matches;
+    queue<CContestant> m_Queue;
+    set<string> m_Visited;
 };
 
 #ifndef __PROGTEST__
