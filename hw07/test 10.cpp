@@ -28,85 +28,55 @@
 using namespace std;
 #endif /* __PROGTEST__ */
 
-
-template <typename M_>
-int comparator (const M_ & obj)
+//vrchol bude obsahovat vsechny soupere, ktere porazil
+class CContestant
 {
-    if (obj.first > obj.second)
-        return 1;
-    if ( obj.first < obj.second)
-        return -1;
-    else return 0;
-}
-
-template<typename M_>
-struct CDuel
-{
-  string m_Contestant1;
-  string m_Contestant2;
-  M_ m_Result;
-  bool operator == (const CDuel & a)
-  {
-      return m_Contestant1 == a.m_Contestant1 && m_Contestant2 == a.m_Contestant2 && m_Result == a.m_Result;
-  }
-  bool compare(const M_ & lhs, const M_ & rhs)
-  {
-      if (lhs.first != rhs.first)
-          return lhs.first < rhs.first;
-      return lhs.second < rhs.second;
-  }
-  bool operator < (const CDuel & a)
-  {
-      if (m_Contestant1 != m_Contestant1)
-          return m_Contestant1 < a.m_Contestant1;
-      if (m_Contestant2 != a.m_Contestant2)
-          return m_Contestant2 < a.m_Contestant2;
-      return compare(m_Result,a.m_Result);
-  }
-};
-
-template <typename M_>
-struct CContestant {
 public:
-    bool add ( const CDuel <M_> & a)
+    CVertice() = default;
+    ~CVertice() = default;
+    void add ( const string & a)
     {
-        if (m_Matches.find(a) != m_Matches.end())
-            return false;
-        m_Matches.insert(a);
-        return true;
+        m_Edges.insert(a);
     }
-    int m_Wins = 0;
-    set< CDuel <M_> > m_Matches;
+private:
+    set<string> m_Edges;
+    string m_Name;
 };
+
+
 
 template<typename M_>
 class CContest {
 public:
     CContest() = default;
     ~CContest () = default;
-    //TODO vymyslet jak bude vypadat comparator...
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
-        CDuel<M_> a {contestant1,contestant2,result};
-        m_Contestants[contestant1].add(a);
-        m_Contestants[contestant2].add(a);
+        //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
+        m_Matches.push_back({contestant1, contestant2, result});
+        return *this;
     }
     // isOrdered ( comparator )
-    bool isOrdered(int compare (const M_ & obj))
+    //TODO tady se provede BFS a urci zda je mozne rozhodnout viteze
+    bool isOrdered()
     {
         return true;
     }
     // results ( comparator )
-    list<string> results ( int compare (const M_ & obj))
+    //TODO take se provede BFS
+    list<string> results ()
     {
-        list<string> res;
 
-        return res;
     }
 private:
-    //Udelat shared ptr na CContestant? a mit to v setu serazeno podle vyher a v mape podle jmena??? To nezni uplne spatne
-    map <string, CContestant <M_> > m_Contestants;
-    vector<CDuel<M_> > m_Matches;
+    struct Contest {
+        string contestant1;
+        string contetant2;
+        M_ result;
+    };
+    vector<Contest> m_Matches;
+    queue<CContestant> m_Queue;
+    set<string> m_Visited;
 };
 
 #ifndef __PROGTEST__
