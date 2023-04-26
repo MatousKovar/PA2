@@ -69,10 +69,10 @@ public:
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
         //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
-        m_Contestants[contestant1] = CContestant(contestant1);
-        m_Contestants[contestant2] = CContestant(contestant2);
-        if (m_Contestants[contestant1].isInRelation(contestant2) || m_Contestants[contestant2].isInRelation(contestant1))
-            throw (std::logic_error);
+        for (size_t i = 0 ; i < m_Matches.size() ; i++)
+            if (m_Matches[i].contestant1 == contestant1
+                && m_Matches[i].contestant2 == contestant2)
+            throw std::logic_error("Existing match");
         m_Matches.push_back({contestant1, contestant2, result});
         return *this;
     }
@@ -81,6 +81,9 @@ public:
     // zvysit pocet vstupnich u cile a pridat do vektoru hran v zdroji
     bool isOrdered(function<int(M_)> funct)
     {
+        if (!createGraph(funct))
+            return false;
+
         return true;
     }
     // results ( comparator )
@@ -95,13 +98,29 @@ public:
 private:
     struct Contest {
         string contestant1;
-        string contetant2;
+        string contestant2;
         M_ result;
     };
     map<string,CContestant> m_Contestants;
     vector<Contest> m_Matches;
     queue<CContestant> m_Queue;
     set<string> m_Visited;
+    //takes vector of matches and adds results to correct Contestants
+    bool createGraph (function<int(M_)> funct)
+    {
+        for (size_t i = 0 ; i < m_Matches.size() ; i++)
+        {
+            if (funct > 1 ) {
+                m_Contestants[m_Matches[i].contestant1].add(m_Matches[i].contestant2);
+                m_Contestants[m_Matches[i].contestant2].addIn();
+            }
+            else if (funct == 0)
+                return false;
+            else
+                m_Contestants[m_Matches[i].contestant2].add(m_Matches[i].contestant1);
+                m_Contestants[m_Matches[i].contestant1].addIn();
+        }
+    }
 };
 
 
