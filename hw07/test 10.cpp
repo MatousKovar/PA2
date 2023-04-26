@@ -43,6 +43,8 @@ public:
     {
         m_In ++;
     }
+    int inEdges ()
+    {return m_In;}
 
     //returns true if two competitors are in relation
     bool isInRelation(const string & a)
@@ -68,30 +70,36 @@ public:
     ~CContest () = default;
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
-        //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
+        //ujistit se ze existuji oba soutezici
+        m_Contestants[contestant1] = CContestant(contestant1);
+        m_Contestants[contestant2] = CContestant(contestant2);
+        //zjistit jestli se mezi nimi uz neudal zapas
         for (size_t i = 0 ; i < m_Matches.size() ; i++)
             if (m_Matches[i].contestant1 == contestant1
                 && m_Matches[i].contestant2 == contestant2)
             throw std::logic_error("Existing match");
+        //ulozit zaznam
         m_Matches.push_back({contestant1, contestant2, result});
         return *this;
     }
-    // isOrdered ( comparator )
-    //TODO tady se provede BFS a urci zda je mozne rozhodnout viteze
-    // zvysit pocet vstupnich u cile a pridat do vektoru hran v zdroji
     bool isOrdered(function<int(M_)> funct)
     {
+//        TODO tady je potreba rozhodnout ktery node ma 0 vstupujicich hran
+//        tento node pridame do vysledku
+//        dale pridame do queue vsechny vrcholy na ktere ukazuje a snizime jim m_In o jedna
+//        zkontrolujeme jestli ma pouze jeden m_In == 0; pokud ne vracime false;
+//        opakujeme -> pop z vectoru ten, ktery ma m_In = 0; pridani jeho potomku .... az dojdeme do konce
         if (!createGraph(funct))
             return false;
 
         return true;
     }
-    // results ( comparator )
-    //TODO take se provede BFS
     list<string> results (function<int(M_)> funct)
     {
         list<string> res;
+        queue<CContestant> tmp_queue;
 
+        for (size_t i = 0 ; i < m_Contestants.size() ; i ++)
 
         return res;
     }
@@ -106,7 +114,7 @@ private:
     queue<CContestant> m_Queue;
     set<string> m_Visited;
     //takes vector of matches and adds results to correct Contestants
-    bool createGraph (function<int(M_)> funct)
+    bool createGraph (function<int (M_) > funct)
     {
         for (size_t i = 0 ; i < m_Matches.size() ; i++)
         {
