@@ -32,6 +32,7 @@ using namespace std;
 class CContestant
 {
 public:
+    CContestant(const string & a) : m_Name(a) {}
     CContestant() = default;
     ~CContestant() = default;
     void add ( const string & a)
@@ -41,6 +42,16 @@ public:
     void addIn ()
     {
         m_In ++;
+    }
+
+    //returns true if two competitors are in relation
+    bool isInRelation(const string & a)
+    {
+        return m_Edges.find(a) != m_Edges.end();
+    }
+    bool operator < (const CContestant & other) const
+    {
+        return m_Name < other.m_Name;
     }
 private:
     set<string> m_Edges;
@@ -58,6 +69,10 @@ public:
     CContest & addMatch (const string & contestant1,const string & contestant2, const M_ & result)
     {
         //tak to znamena ze uz vitez porazil nekoho, kdo porazil porazeneho
+        m_Contestants[contestant1] = CContestant(contestant1);
+        m_Contestants[contestant2] = CContestant(contestant2);
+        if (m_Contestants[contestant1].isInRelation(contestant2) || m_Contestants[contestant2].isInRelation(contestant1))
+            throw (std::logic_error);
         m_Matches.push_back({contestant1, contestant2, result});
         return *this;
     }
@@ -72,7 +87,10 @@ public:
     //TODO take se provede BFS
     list<string> results (function<int(M_)> funct)
     {
+        list<string> res;
 
+
+        return res;
     }
 private:
     struct Contest {
@@ -80,10 +98,12 @@ private:
         string contetant2;
         M_ result;
     };
+    map<string,CContestant> m_Contestants;
     vector<Contest> m_Matches;
     queue<CContestant> m_Queue;
     set<string> m_Visited;
 };
+
 
 #ifndef __PROGTEST__
 
