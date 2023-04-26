@@ -153,7 +153,33 @@ public:
     }
     list<string> results (function<int(M_)> funct)
     {
-
+        list<string> res;
+        CGraph graph;
+        //fill graph
+        set<string> buffer;
+        for (const auto & a : m_Matches)
+        {
+            if ( funct(a.result) > 1 )
+                graph.graphAdd(a.contestant1,a.contestant2);
+            else if (funct(a.result) == 0)
+                throw logic_error("Chyba");
+            else
+                graph.graphAdd(a.contestant2,a.contestant1);
+        }
+        //ted chci pouze prochazet graf a kontrolovat jestli v kazdem kroku neexistuje vice nodu s zadnymi vstupy
+        while (true) {
+            string lowest = graph.lowestIncomingEdges();
+            if (lowest == "")
+                throw logic_error("Slepa vetev");
+            res.push_front(lowest);
+            vector<string> tmp = graph.neighbourNodes(lowest);
+            if (tmp.size() == 0)
+                return res;
+            for (size_t i = 0; i < tmp.size(); i++)
+                buffer.insert(tmp[i]);
+            graph.deleteNode(lowest);
+        }
+        return res;
     }
 private:
     struct Contest {
@@ -168,7 +194,12 @@ private:
     //takes vector of matches and adds results to correct Contestants
 };
 
-
+void printList ( const list<string> & a)
+{
+    for (const auto & x : a)
+        cout << x << ", ";
+    cout << endl;
+}
 #ifndef __PROGTEST__
 
 struct CMatch {
@@ -216,11 +247,17 @@ int main(void) {
 
     CContest<CMatch> y;
 
-    y.addMatch("A","B", CMatch(10,3)).addMatch("B","C", CMatch(10,3));
+    y.addMatch("A","B", CMatch(10,3)).addMatch("B","C", CMatch(10,3))
+     .addMatch("A","C", CMatch(10,3)).addMatch("E","A", CMatch(10,3));
+
+    list<string> a = y.results(HigherScore);
+    printList(a);
+    list<string> b = x.results(HigherScore);
+    printList(b);
 
     assert(y.isOrdered(HigherScore));
 
-    assert (!x.isOrdered(HigherScore));
+    assert (! x.isOrdered(HigherScore));
 //    try {
 //        list<string> res = x.results(HigherScore);
 //        assert ("Exception missing!" == nullptr);
