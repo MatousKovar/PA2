@@ -32,14 +32,19 @@ using namespace std;
 class CContestant
 {
 public:
-    CVertice() = default;
-    ~CVertice() = default;
+    CContestant() = default;
+    ~CContestant() = default;
     void add ( const string & a)
     {
         m_Edges.insert(a);
     }
+    void addIn ()
+    {
+        m_In ++;
+    }
 private:
     set<string> m_Edges;
+    int m_In;
     string m_Name;
 };
 
@@ -58,13 +63,14 @@ public:
     }
     // isOrdered ( comparator )
     //TODO tady se provede BFS a urci zda je mozne rozhodnout viteze
-    bool isOrdered()
+    // zvysit pocet vstupnich u cile a pridat do vektoru hran v zdroji
+    bool isOrdered(function<int(M_)> funct)
     {
         return true;
     }
     // results ( comparator )
     //TODO take se provede BFS
-    list<string> results ()
+    list<string> results (function<int(M_)> funct)
     {
 
     }
