@@ -37,7 +37,7 @@ public:
     ~CContestant() = default;
     void add ( const string & a)
     {
-        m_Edges.insert(a);
+        m_Neighbours.insert(a);
     }
     void addIn ()
     {
@@ -47,7 +47,7 @@ public:
     {return m_In;}
 private:
     friend class CGraph;
-    set<string> m_Edges;
+    set<string> m_Neighbours;
     int m_In;
     string m_Name;
     bool visited;
@@ -84,7 +84,7 @@ public:
     vector<string> neighbourNodes (const string & name)
     {
         vector <string> res;
-        for (const string & a : m_Contestants[name].m_Edges) {
+        for (const string & a : m_Contestants[name].m_Neighbours) {
             res.push_back(a);
             m_Contestants[a].m_In --;
         }
@@ -151,7 +151,7 @@ public:
         }
         return true;
     }
-    list<string> results (function<int(M_)> funct)
+    list<string> results (function<int(M_)> funct) const
     {
         list<string> res;
         CGraph graph;
@@ -162,7 +162,7 @@ public:
             if ( funct(a.result) > 1 )
                 graph.graphAdd(a.contestant1,a.contestant2);
             else if (funct(a.result) == 0)
-                throw logic_error("Chyba");
+                throw logic_error("Remiza");
             else
                 graph.graphAdd(a.contestant2,a.contestant1);
         }
@@ -170,7 +170,7 @@ public:
         while (true) {
             string lowest = graph.lowestIncomingEdges();
             if (lowest == "")
-                throw logic_error("Slepa vetev");
+                throw logic_error("Razeni neni jednoznacne");
             res.push_front(lowest);
             vector<string> tmp = graph.neighbourNodes(lowest);
             if (tmp.size() == 0)
@@ -189,9 +189,6 @@ private:
     };
     map<string,CContestant> m_Contestants;
     vector<Contest> m_Matches;
-    queue<CContestant> m_Queue;
-    set<string> m_Visited;
-    //takes vector of matches and adds results to correct Contestants
 };
 
 void printList ( const list<string> & a)
@@ -252,25 +249,26 @@ int main(void) {
 
     list<string> a = y.results(HigherScore);
     printList(a);
-    list<string> b = x.results(HigherScore);
-    printList(b);
 
     assert(y.isOrdered(HigherScore));
 
     assert (! x.isOrdered(HigherScore));
-//    try {
-//        list<string> res = x.results(HigherScore);
-//        assert ("Exception missing!" == nullptr);
-//    }
-//    catch (const logic_error &e) {
-//    }
-//    catch (...) {
-//        assert ("Invalid exception thrown!" == nullptr);
-//    }
-//
-//    x.addMatch("PHP", "Pascal", CMatch(3, 6));
-//
-//    assert (x.isOrdered(HigherScore));
+    try {
+        list<string> res = x.results(HigherScore);
+        assert ("Exception missing!" == nullptr);
+    }
+    catch (const logic_error &e) {
+    }
+    catch (...) {
+        assert ("Invalid exception thrown!" == nullptr);
+    }
+
+    x.addMatch("PHP", "Pascal", CMatch(3, 6));
+
+    assert (x.isOrdered(HigherScore));
+    list<string> b = x.results(HigherScore);
+    printList(b);
+
 //    try {
 //        list<string> res = x.results(HigherScore);
 //        assert ((res == list<string>{"C++", "Java", "Pascal", "PHP", "Basic"}));
