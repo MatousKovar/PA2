@@ -32,7 +32,7 @@ using namespace std;
 class CContestant
 {
 public:
-    CContestant(const string & a) : m_Name(a), m_In(0) {}
+    CContestant(const string & a) : m_In(0), m_Name(a) {}
     CContestant()
         :m_In(0)
     {}
@@ -66,7 +66,6 @@ public:
     CGraph () = default;
     void graphAdd (const string & winner , const string & loser)
     {
-        //todo tady se asi neinicializuje jmeno souteziciho
         m_Contestants[winner].add(loser);
         m_Contestants[loser].addIn();
     }
@@ -126,14 +125,16 @@ public:
         //ujistit se ze existuji oba soutezici
         //zjistit jestli se mezi nimi uz neudal zapas
         for (size_t i = 0 ; i < m_Matches.size() ; i++)
-            if (m_Matches[i].contestant1 == contestant1
+            if ((m_Matches[i].contestant1 == contestant1
                 && m_Matches[i].contestant2 == contestant2)
-            throw std::logic_error("Existing match");
+                || (m_Matches[i].contestant2 == contestant1 && m_Matches[i].contestant1 == contestant2)) {
+                throw logic_error("Existing match");
+            }
         //ulozit zaznam
         m_Matches.push_back({contestant1, contestant2, result});
         return *this;
     }
-    bool isOrdered(function<int(M_)> funct) const
+    bool isOrdered(function <int (M_)> funct) const
     {
 //        TODO tady je potreba rozhodnout ktery node ma 0 vstupujicich hran
 //        tento node pridame do vysledku
@@ -145,7 +146,7 @@ public:
         set<string> buffer;
         for (const auto & a : m_Matches)
         {
-            if ( funct(a.result) > 1 )
+            if ( funct(a.result) >0  )
                 graph.graphAdd(a.contestant1,a.contestant2);
             else if (funct(a.result) == 0)
                 return false;
@@ -166,7 +167,7 @@ public:
         }
         return true;
     }
-    list<string> results (function<int(M_)> funct) const
+    list<string> results (function <int (M_)> funct) const
     {
         list<string> res;
         CGraph graph;
@@ -174,7 +175,7 @@ public:
         set<string> buffer;
         for (const auto & a : m_Matches)
         {
-            if ( funct(a.result) > 1 )
+            if ( funct(a.result) > 0 )
                 graph.graphAdd(a.contestant1,a.contestant2);
             else if (funct(a.result) == 0)
                 throw logic_error("Remiza");
@@ -187,7 +188,7 @@ public:
             string lowest = graph.lowestIncomingEdges();
             if (lowest == "")
                 throw logic_error("Razeni neni jednoznacne");
-            res.push_front(lowest);
+            res.push_back(lowest);
             vector<string> tmp = graph.neighbourNodes(lowest);
             if (tmp.size() == 0)
                 return res;
@@ -285,95 +286,95 @@ int main(void) {
     list<string> b = x.results(HigherScore);
     printList(b);
 
-//    try {
-//        list<string> res = x.results(HigherScore);
-//        assert ((res == list<string>{"C++", "Java", "Pascal", "PHP", "Basic"}));
-//    }
-//    catch (...) {
-//        assert ("Unexpected exception!" == nullptr);
-//    }
+    try {
+        list<string> res = x.results(HigherScore);
+        assert ((res == list<string>{"C++", "Java", "Pascal", "PHP", "Basic"}));
+    }
+    catch (...) {
+        assert ("Unexpected exception!" == nullptr);
+    }
+
+
+    assert (!x.isOrdered(HigherScoreThreshold(3)));
+    try {
+        list<string> res = x.results(HigherScoreThreshold(3));
+        assert ("Exception missing!" == nullptr);
+    }
+    catch (const logic_error &e) {
+    }
+    catch (...) {
+        assert ("Invalid exception thrown!" == nullptr);
+    }
+
+    assert (x.isOrdered([](const CMatch &x) {
+        return (x.m_A < x.m_B) - (x.m_B < x.m_A);
+    }));
+    try {
+        list<string> res = x.results([](const CMatch &x) {
+            return (x.m_A < x.m_B) - (x.m_B < x.m_A);
+        });
+        assert ((res == list<string>{"Basic", "PHP", "Pascal", "Java", "C++"}));
+    }
+    catch (...) {
+        assert ("Unexpected exception!" == nullptr);
+    }
 //
-//
-//    assert (!x.isOrdered(HigherScoreThreshold(3)));
-//    try {
-//        list<string> res = x.results(HigherScoreThreshold(3));
-//        assert ("Exception missing!" == nullptr);
-//    }
-//    catch (const logic_error &e) {
-//    }
-//    catch (...) {
-//        assert ("Invalid exception thrown!" == nullptr);
-//    }
-//
-//    assert (x.isOrdered([](const CMatch &x) {
-//        return (x.m_A < x.m_B) - (x.m_B < x.m_A);
-//    }));
-//    try {
-//        list<string> res = x.results([](const CMatch &x) {
-//            return (x.m_A < x.m_B) - (x.m_B < x.m_A);
-//        });
-//        assert ((res == list<string>{"Basic", "PHP", "Pascal", "Java", "C++"}));
-//    }
-//    catch (...) {
-//        assert ("Unexpected exception!" == nullptr);
-//    }
-//
-//    CContest<bool> y;
-//
-//    y.addMatch("Python", "PHP", true)
-//            .addMatch("PHP", "Perl", true)
-//            .addMatch("Perl", "Bash", true)
-//            .addMatch("Bash", "JavaScript", true)
-//            .addMatch("JavaScript", "VBScript", true);
-//
-//    assert (y.isOrdered([](bool v) {
-//        return v ? 10 : -10;
-//    }));
-//    try {
-//        list<string> res = y.results([](bool v) {
-//            return v ? 10 : -10;
-//        });
-//        assert ((res == list<string>{"Python", "PHP", "Perl", "Bash", "JavaScript", "VBScript"}));
-//    }
-//    catch (...) {
-//        assert ("Unexpected exception!" == nullptr);
-//    }
-//
-//    y.addMatch("PHP", "JavaScript", false);
-//    assert (!y.isOrdered([](bool v) {
-//        return v ? 10 : -10;
-//    }));
-//    try {
-//        list<string> res = y.results([](bool v) {
-//            return v ? 10 : -10;
-//        });
-//        assert ("Exception missing!" == nullptr);
-//    }
-//    catch (const logic_error &e) {
-//    }
-//    catch (...) {
-//        assert ("Invalid exception thrown!" == nullptr);
-//    }
-//
-//    try {
-//        y.addMatch("PHP", "JavaScript", false);
-//        assert ("Exception missing!" == nullptr);
-//    }
-//    catch (const logic_error &e) {
-//    }
-//    catch (...) {
-//        assert ("Invalid exception thrown!" == nullptr);
-//    }
-//
-//    try {
-//        y.addMatch("JavaScript", "PHP", true);
-//        assert ("Exception missing!" == nullptr);
-//    }
-//    catch (const logic_error &e) {
-//    }
-//    catch (...) {
-//        assert ("Invalid exception thrown!" == nullptr);
-//    }
+    CContest<bool> y;
+
+    y.addMatch("Python", "PHP", true)
+            .addMatch("PHP", "Perl", true)
+            .addMatch("Perl", "Bash", true)
+            .addMatch("Bash", "JavaScript", true)
+            .addMatch("JavaScript", "VBScript", true);
+
+    assert (y.isOrdered([](bool v) {
+        return v ? 10 : -10;
+    }));
+    try {
+        list<string> res = y.results([](bool v) {
+            return v ? 10 : -10;
+        });
+        assert ((res == list<string>{"Python", "PHP", "Perl", "Bash", "JavaScript", "VBScript"}));
+    }
+    catch (...) {
+        assert ("Unexpected exception!" == nullptr);
+    }
+
+    y.addMatch("PHP", "JavaScript", false);
+    assert (!y.isOrdered([](bool v) {
+        return v ? 10 : -10;
+    }));
+    try {
+        list<string> res = y.results([](bool v) {
+            return v ? 10 : -10;
+        });
+        assert ("Exception missing!" == nullptr);
+    }
+    catch (const logic_error &e) {
+    }
+    catch (...) {
+        assert ("Invalid exception thrown!" == nullptr);
+    }
+
+    try {
+        y.addMatch("PHP", "JavaScript", false);
+        assert ("Exception missing!" == nullptr);
+    }
+    catch (const logic_error &e) {
+    }
+    catch (...) {
+        assert ("Invalid exception thrown!" == nullptr);
+    }
+
+    try {
+        y.addMatch("JavaScript", "PHP", true);
+        assert ("Exception missing!" == nullptr);
+    }
+    catch (const logic_error &e) {
+    }
+    catch (...) {
+        assert ("Invalid exception thrown!" == nullptr);
+    }
     return EXIT_SUCCESS;
 }
 
