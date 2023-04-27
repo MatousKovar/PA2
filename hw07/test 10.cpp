@@ -32,8 +32,10 @@ using namespace std;
 class CContestant
 {
 public:
-    CContestant(const string & a) : m_Name(a) {}
-    CContestant() = default;
+    CContestant(const string & a) : m_Name(a), m_In(0) {}
+    CContestant()
+        :m_In(0)
+    {}
     ~CContestant() = default;
     void add ( const string & a)
     {
