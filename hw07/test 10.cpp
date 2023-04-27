@@ -45,12 +45,17 @@ public:
     }
     int inEdges () const
     {return m_In;}
+    void  print ( ) const
+    {
+        for (const auto & a : m_Neighbours)
+            cout << a << ", ";
+        cout << "Pocet vstupu: " << m_In << endl;
+    }
 private:
     friend class CGraph;
     set<string> m_Neighbours;
     int m_In;
     string m_Name;
-    bool visited;
 };
 
 class CGraph
@@ -93,6 +98,14 @@ public:
     void deleteNode (const string & a)
     {
         m_Contestants.erase(a);
+    }
+    void printGraph () const
+    {
+        for (const auto & a : m_Contestants) {
+            cout <<"Soutezici: " << a.first << " := ";
+            a.second.print();
+            cout << endl;
+        }
     }
 
 private:
@@ -166,6 +179,7 @@ public:
             else
                 graph.graphAdd(a.contestant2,a.contestant1);
         }
+        graph.printGraph();
         //ted chci pouze prochazet graf a kontrolovat jestli v kazdem kroku neexistuje vice nodu s zadnymi vstupy
         while (true) {
             string lowest = graph.lowestIncomingEdges();
@@ -242,15 +256,15 @@ int main(void) {
 //            .addMatch("PHP", "Pascal", CMatch(3, 6))
             .addMatch("PHP", "Basic", CMatch(10, 0));
 
-    CContest<CMatch> y;
+//    CContest<CMatch> y;
+//
+//    y.addMatch("A","B", CMatch(10,3)).addMatch("B","C", CMatch(10,3))
+//     .addMatch("A","C", CMatch(10,3)).addMatch("E","A", CMatch(10,3));
 
-    y.addMatch("A","B", CMatch(10,3)).addMatch("B","C", CMatch(10,3))
-     .addMatch("A","C", CMatch(10,3)).addMatch("E","A", CMatch(10,3));
+//    list<string> a = y.results(HigherScore);
+//    printList(a);
 
-    list<string> a = y.results(HigherScore);
-    printList(a);
-
-    assert(y.isOrdered(HigherScore));
+//    assert(y.isOrdered(HigherScore));
 
     assert (! x.isOrdered(HigherScore));
     try {
