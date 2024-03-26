@@ -1,0 +1,10 @@
+[0] Window Sample window (10,10,600,480)
++- [1] Button Ok (70,394,180,48)
++- [2] Button Cancel (370,394,180,48)
++- [10] Label Username: (70,58,120,48)
++- [11] Input chucknorris (250,58,300,48)
++- [20] ComboBox (70,154,480,48)
+    +->Karate<
+    +- Judo
+    +- Box
+    +- Progtest
