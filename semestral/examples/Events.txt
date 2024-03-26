@@ -1,0 +1,6 @@
+"14.11.2002 10:15";"15.11.2002 10:00";"Somalsko";"Work";"Easy street";"Do not forget";"Meeasssdfating";"asdf"
+"15.11.2002 10:15";"15.11.2002 10:45";"Some note";"Work";"Easy street";"Do not forget";"Meeting";"asdf"
+"15.11.2002 12:15";"15.11.2002 14:00";"Some other note";"Work";"Campus";"Do not forget";"Meeting";"asdf"
+"15.11.2002 15:15";"15.11.2002 16:45";"Nothing";"Work";"Warehouse";"none";"Meeting";"asdff"
+"15.11.2002 17:00";"15.11.2002 18:00";"Nothing";"Work";"Warehouse";"none";"Meeting";"asdfasdf"
+"15.11.2003 17:00";"15.11.2004 18:00";"Nothing";"Work";"Warehouse";"none";"Meeting";"asdfasdf"

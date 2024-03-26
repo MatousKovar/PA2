@@ -1,0 +1,3 @@
+/Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug/CMakeFiles/kovarm46.dir
+/Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug/CMakeFiles/rebuild_cache.dir

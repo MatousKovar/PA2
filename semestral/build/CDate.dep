@@ -1,0 +1,1 @@
+build/CDate.o: src/CDate.cpp src/CDate.h

@@ -1,0 +1,95 @@
+Kalendář
+=======================================================================
+Zadani z progtestu:
+
+Vaším cílem je implementovat aplikaci pro správu kalendářů a událostí v nich.
+Implementujte následující funcionality:
+    1)Kalendář musí zobrazovat alespoň denní, týdenní a měsíční přehled událostí.
+
+    2)U událostí chceme evidovat alespoň následující informace: název události, datum a čas, trvání, místo, účastníky,
+    tagy, textovou poznámku. V rámci své implementace můžete přidat další zajímavé atributy (př. účast: povinná,
+    přesunutelná, volitelná, …).
+
+    3)Události mohou být jednorázové nebo opakující se. Umožněte definovat frekvenci opakování alespoň na úrovni dní.
+
+    4)Kalendář musí umožnit vyhledávat události podle jednotlivých atributů a to včetně kombinací obsahující spojky
+      "a zároveň" a "nebo" (př. události před 23.1.2022 a zároveń v Praze, …).
+
+    5)Umožněte exportování a importování událostí. Exportovat lze i výběr definovaný vyhledáváním.
+
+    6)Kalendář nesmí umožnit kolizi, v případě kolize musí umožnit najít nejbližší volný termín nebo přesunout
+      událost (je-li to možné). Alternativně můžete povolit max. počet kolizí (př. 24 kolizí pro učebnu, podle počtu
+      studentů, které v ní mohou být, …), nelze však kolize ignorovat.
+
+===========================================================================
+
+Cílem bude vytvořit aplikaci kalendáře, která bude ovládána z příkazové řádky.
+
+Aplikace funguje pomocí dotazování se uživatele na atributy jednotlivých příkazů, na základě kterých upravuje kalendář.
+
+Obsahuje příkazy: add, remove, find, load, save, query, find
+
+Při tvorbě událostí kalendář umí detekovat nesprávné data, kolize a vypíše událost s kterou nově přidaná událost koliduje.
+
+U dotazů je možné řetězit pomocí spojek and/or. Dotaz se ukončuje spojkou end. Dále je možné výsledek dotazu uložit do souboru.
+
+
+Příklad použití:
+
+Welcome to your calendar, type "help" to see available commands.
+Enter command:
+add
+Input date, when event starts: [dd.mm.yyyy hh:mm]
+$ 1.1.2022 11:00
+Input date, when event ends: [dd.mm.yyyy hh:mm]
+$ 1.1.2022 16:00
+Input name of event:
+$ PA2 exam
+Input type of event:
+$ school
+Input place of event:
+$ FIT
+Input note for event:
+$
+Input TAG of event:
+$ study
+Input people participating in event:
+$
+Event Added Succesfully!
+Do you want to repeat this event[y/n]?
+$ n
+Enter command:
+$ view
+Input type of view: day
+Input date[dd.mm.yyyy]: 1.1.2022
+Events planned for 1.1.2022
+00:00
+01:00
+02:00
+03:00
+04:00
+05:00
+06:00
+07:00
+08:00
+09:00
+10:00
+11:00 Name: "PA2 exam" Type: "school" Place: FIT" Note: "" TAG: "study"
+.
+.
+16:00
+17:00
+18:00
+19:00
+20:00
+21:00
+22:00
+23:00
+
+Polymorfismus:
+Hlavní polymorfismus chcít použít na třídě CCommand. Je to třída, která bude reprezentovat příkazy - jednotliví potomci.
+Třída CApplication bude potom obsahovat map<string, CCommand>, kde bude možné díky virtuální metodě Execute spouštět
+jednotlivé příkazy pouze jako CCommand.
+Vedlejší polymorfismus bude použit u CView, kde jednotlivá zobrazení budou mít přetíženou metodu Print.
+
+

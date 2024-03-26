@@ -1,0 +1,2 @@
+build/CCalendar.o: src/CCalendar.cpp src/CCalendar.h src/CEvent.h \
+  src/CDate.h src/CInterface.h src/CFileManager.h

@@ -1,0 +1,2 @@
+build/CSubQuery.o: src/CSubQuery.cpp src/CSubQuery.h src/CCalendar.h \
+  src/CEvent.h src/CDate.h src/CInterface.h src/CFileManager.h

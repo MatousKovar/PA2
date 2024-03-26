@@ -1,0 +1,4 @@
+build/CQuery.o: src/CQuery.cpp src/CQuery.h src/CCalendar.h src/CEvent.h \
+  src/CDate.h src/CInterface.h src/CFileManager.h src/CSubQuery.h \
+  src/CSubQueryName.h src/CSubQueryNote.h src/CSubQueryTag.h \
+  src/CSubQueryPlace.h src/CSubQueryPeople.h src/CSubQueryType.h

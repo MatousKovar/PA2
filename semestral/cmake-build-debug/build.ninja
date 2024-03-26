@@ -1,0 +1,301 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: kovarm46
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target kovarm46
+
+
+#############################################
+# Order-only phony target for kovarm46
+
+build cmake_object_order_depends_target_kovarm46: phony || CMakeFiles/kovarm46.dir
+
+build CMakeFiles/kovarm46.dir/src/main.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/main.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/main.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CCalendar.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CCalendar.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CCalendar.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CDate.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CDate.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CDate.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CApplication.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CApplication.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CApplication.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CInterface.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CInterface.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CInterface.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CViewDay.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CViewDay.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CViewDay.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CViewWeek.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CViewWeek.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CViewWeek.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CViewMonth.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CViewMonth.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CViewMonth.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CQuery.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CQuery.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CQuery.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CEvent.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CEvent.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CEvent.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSaveCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSaveCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSaveCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CRemoveCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CRemoveCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CRemoveCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CLoadCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CLoadCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CLoadCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CFindCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CFindCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CFindCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CAddCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CAddCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CAddCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CViewCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CViewCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CViewCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CViewManager.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CViewManager.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CViewManager.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CFileManager.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CFileManager.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CFileManager.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CQueryCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CQueryCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CQueryCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQuery.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQuery.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQuery.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryNote.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryNote.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryNote.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryName.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryName.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryName.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryPlace.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryPlace.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryPlace.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryTag.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryTag.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryTag.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryPeople.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryPeople.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryPeople.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CSubQueryType.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CSubQueryType.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CSubQueryType.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+build CMakeFiles/kovarm46.dir/src/CHelpCommand.cpp.o: CXX_COMPILER__kovarm46_Debug /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/src/CHelpCommand.cpp || cmake_object_order_depends_target_kovarm46
+  DEP_FILE = CMakeFiles/kovarm46.dir/src/CHelpCommand.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  OBJECT_FILE_DIR = CMakeFiles/kovarm46.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target kovarm46
+
+
+#############################################
+# Link the executable kovarm46
+
+build kovarm46: CXX_EXECUTABLE_LINKER__kovarm46_Debug CMakeFiles/kovarm46.dir/src/main.cpp.o CMakeFiles/kovarm46.dir/src/CCalendar.cpp.o CMakeFiles/kovarm46.dir/src/CDate.cpp.o CMakeFiles/kovarm46.dir/src/CApplication.cpp.o CMakeFiles/kovarm46.dir/src/CInterface.cpp.o CMakeFiles/kovarm46.dir/src/CViewDay.cpp.o CMakeFiles/kovarm46.dir/src/CViewWeek.cpp.o CMakeFiles/kovarm46.dir/src/CViewMonth.cpp.o CMakeFiles/kovarm46.dir/src/CQuery.cpp.o CMakeFiles/kovarm46.dir/src/CEvent.cpp.o CMakeFiles/kovarm46.dir/src/CSaveCommand.cpp.o CMakeFiles/kovarm46.dir/src/CRemoveCommand.cpp.o CMakeFiles/kovarm46.dir/src/CLoadCommand.cpp.o CMakeFiles/kovarm46.dir/src/CFindCommand.cpp.o CMakeFiles/kovarm46.dir/src/CAddCommand.cpp.o CMakeFiles/kovarm46.dir/src/CCommand.cpp.o CMakeFiles/kovarm46.dir/src/CViewCommand.cpp.o CMakeFiles/kovarm46.dir/src/CViewManager.cpp.o CMakeFiles/kovarm46.dir/src/CFileManager.cpp.o CMakeFiles/kovarm46.dir/src/CQueryCommand.cpp.o CMakeFiles/kovarm46.dir/src/CSubQuery.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryNote.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryName.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryPlace.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryTag.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryPeople.cpp.o CMakeFiles/kovarm46.dir/src/CSubQueryType.cpp.o CMakeFiles/kovarm46.dir/src/CHelpCommand.cpp.o
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  OBJECT_DIR = CMakeFiles/kovarm46.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = kovarm46
+  TARGET_PDB = kovarm46.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/matouskovar/FIT/PA2/kovarm46/kovarm46 -B/Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/cmake-build-debug
+
+build all: phony kovarm46
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Users/matouskovar/FIT/PA2/kovarm46/kovarm46/CMakeLists.txt CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

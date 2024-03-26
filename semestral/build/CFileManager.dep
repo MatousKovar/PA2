@@ -1,0 +1,2 @@
+build/CFileManager.o: src/CFileManager.cpp src/CFileManager.h \
+  src/CInterface.h src/CEvent.h src/CDate.h src/CCalendar.h

@@ -1,0 +1,3 @@
+build/CSubQueryTag.o: src/CSubQueryTag.cpp src/CSubQueryTag.h \
+  src/CSubQuery.h src/CCalendar.h src/CEvent.h src/CDate.h \
+  src/CInterface.h src/CFileManager.h

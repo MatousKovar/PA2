@@ -1,0 +1,3 @@
+build/CFindCommand.o: src/CFindCommand.cpp src/CFindCommand.h \
+  src/CCommand.h src/CCalendar.h src/CEvent.h src/CDate.h \
+  src/CInterface.h src/CFileManager.h

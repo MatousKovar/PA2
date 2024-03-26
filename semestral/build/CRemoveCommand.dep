@@ -1,0 +1,3 @@
+build/CRemoveCommand.o: src/CRemoveCommand.cpp src/CRemoveCommand.h \
+  src/CCommand.h src/CCalendar.h src/CEvent.h src/CDate.h \
+  src/CInterface.h src/CFileManager.h

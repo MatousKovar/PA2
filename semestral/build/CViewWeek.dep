@@ -1,0 +1,3 @@
+build/CViewWeek.o: src/CViewWeek.cpp src/CViewWeek.h src/CView.h \
+  src/CDate.h src/CCalendar.h src/CEvent.h src/CInterface.h \
+  src/CFileManager.h

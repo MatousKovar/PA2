@@ -1,0 +1,3 @@
+build/CLoadCommand.o: src/CLoadCommand.cpp src/CLoadCommand.h \
+  src/CCommand.h src/CCalendar.h src/CEvent.h src/CDate.h \
+  src/CInterface.h src/CFileManager.h

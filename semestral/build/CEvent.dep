@@ -1,0 +1,1 @@
+build/CEvent.o: src/CEvent.cpp src/CEvent.h src/CDate.h src/CInterface.h

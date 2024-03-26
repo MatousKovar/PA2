@@ -1,0 +1,9 @@
+build/main.o: src/main.cpp src/CApplication.h src/CCalendar.h \
+  src/CEvent.h src/CDate.h src/CInterface.h src/CFileManager.h \
+  src/CCommand.h src/CAddCommand.h src/CRemoveCommand.h \
+  src/CFindCommand.h src/CQueryCommand.h src/CQuery.h src/CSubQuery.h \
+  src/CSubQueryName.h src/CSubQueryNote.h src/CSubQueryTag.h \
+  src/CSubQueryPlace.h src/CSubQueryPeople.h src/CSubQueryType.h \
+  src/CSaveCommand.h src/CViewCommand.h src/CViewManager.h src/CView.h \
+  src/CViewDay.h src/CViewMonth.h src/CViewWeek.h src/CLoadCommand.h \
+  src/CHelpCommand.h

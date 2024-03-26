@@ -1,0 +1,2 @@
+build/CViewDay.o: src/CViewDay.cpp src/CViewDay.h src/CView.h src/CDate.h \
+  src/CCalendar.h src/CEvent.h src/CInterface.h src/CFileManager.h

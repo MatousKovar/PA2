@@ -1,0 +1,4 @@
+build/CViewCommand.o: src/CViewCommand.cpp src/CViewCommand.h \
+  src/CViewManager.h src/CView.h src/CDate.h src/CCalendar.h \
+  src/CEvent.h src/CInterface.h src/CFileManager.h src/CViewDay.h \
+  src/CViewMonth.h src/CViewWeek.h src/CCommand.h

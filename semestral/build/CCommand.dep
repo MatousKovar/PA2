@@ -1,0 +1,2 @@
+build/CCommand.o: src/CCommand.cpp src/CCommand.h src/CCalendar.h \
+  src/CEvent.h src/CDate.h src/CInterface.h src/CFileManager.h
